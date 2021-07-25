@@ -11,7 +11,7 @@
               http://localhost:8761/
   # Step 2   
  Run the API Zuul proxy server  using netflix-zuul-api-gateway-server module     
- Run the Zuul proxy server using mail class 
+ Run the Zuul proxy server using main class 
 
                 
   # Step 2            
