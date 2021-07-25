@@ -12,10 +12,9 @@
   # Step 2   
  Run the API Zuul proxy server  using netflix-zuul-api-gateway-server module     
  Run the Zuul proxy server using main class 
-
-                
-  # Step 2            
-     Run the user-core Service  module using main class
+       
+ # Step 3       
+ Run the user-core Service  module using main class
 # You can call the services using swagger url you can check in swagger
         http://localhost:8085/swagger-ui.html#/user-controller
         
