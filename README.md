@@ -3,29 +3,25 @@
 # Steps To Execute the Assignment 
 
  # Download all the above module or clone the repo
-
-      1.First Run the API gateWay using netflix-eureka-naming-server module
-             -> Run the NetflixEurekaNamingServerApplication.class java main class 
-         2.you can  check the Api gateWay At this Link
+ 
+ # Step 1
+       First Run the API gateWay using netflix-eureka-naming-server module
+ Run the NetflixEurekaNamingServerApplication.class java main class 
+ you can  check the Api gateWay At this Link
               http://localhost:8761/
-              
-      2.   2nd Run the API Zuul proxy server  using netflix-zuul-api-gateway-server module     
+  # Step 2   
+ Run the API Zuul proxy server  using netflix-zuul-api-gateway-server module     
+ Run the Zuul proxy server using mail class 
 
-                1.Run the Zuul proxy server using mail class 
-            
-     
-     3 >3rd Run the composite Service  module that call the core service using feign client 
-
-                   https://github.com/vijaykosis/user-composite
-
-     4.4th Run the user-core Service  module using main class
-
+                
+  # Step 2            
+     Run the user-core Service  module using main class
 # You can call the services using swagger url you can check in swagger
         http://localhost:8085/swagger-ui.html#/user-controller
         
 
 # Sample request response from composite service is 
-   url -> localhost:8084/api/v1/createUser
+   url -> localhost:8085/user-core-service/createUser
    
               request payload :
                       {
@@ -46,7 +42,7 @@
 }
 
 # get Api call 
-  localhost:8084/api/v1/getAllInfo
+  localhost:8085/user-core-service/getAllInfo
            Response -->>
            [
     {
