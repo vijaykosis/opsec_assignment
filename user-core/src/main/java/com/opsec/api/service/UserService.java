@@ -1,6 +1,7 @@
 package com.opsec.api.service;
 
 import com.opsec.api.dao.UserDao;
+import com.opsec.api.error.handler.UserExistsException;
 import com.opsec.api.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,31 +9,16 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.Optional;
 
-@Service
-public class UserService {
+public interface UserService {
 
-    @Autowired
-    private UserDao userDao;
+    User insertUserData(User person) throws UserExistsException;
 
+    Collection<User> getAllUserInformation();
 
-    public User insertUserData(User person) {
-        return userDao.insertUserData(person);
-    }
+    Optional<User> getUserInformationUsingId(String id) throws UserExistsException;
 
-    public Collection<User> getAllUserInformation() {
-        return userDao.getAllUserInformation();
-    }
+    void updateUserUsingId(String id, User person);
 
-    public Optional<User> getUserInformationUsingId(String id) {
-        return userDao.getUserInformationById(id);
-    }
-
-    public void updateUserUsingId(String id, User person) {
-        userDao.updateUserUsingId(id, person);
-    }
-
-    public void deleteUserUsingId(String id) {
-        userDao.deleteUserUsingId(id);
-    }
+    void deleteUserUsingId(String id);
 
 }

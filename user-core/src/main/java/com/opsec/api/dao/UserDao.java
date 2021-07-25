@@ -21,7 +21,6 @@ public class UserDao {
     @Autowired
     private UserRepository userRepository;
 
-
     /**
      * This method persist the user information in MongoDb
      *
@@ -31,7 +30,13 @@ public class UserDao {
 
     public User insertUserData(User user) {
         logger.info(" process request {}", user);
-        return userRepository.insert(user);
+        User response = null;
+        try {
+            response = userRepository.insert(user);
+        } catch (Exception e) {
+
+        }
+        return response;
     }
 
     /**

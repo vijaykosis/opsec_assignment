@@ -2,12 +2,15 @@ package com.opsec.api.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 
 public class User {
     private String id;
+    @NotEmpty(message = "First name is required")
     private String firstName;
+    @NotEmpty(message = "sur name is required")
     private String surName;
     @JsonFormat(pattern = "yyyy/MM/dd")
     private Date dob;

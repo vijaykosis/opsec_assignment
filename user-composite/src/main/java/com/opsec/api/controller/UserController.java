@@ -4,8 +4,11 @@ import com.opsec.api.model.User;
 import com.opsec.api.service.UserService;
 import com.opsec.api.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -25,9 +28,9 @@ public class UserController {
 
 
     @PostMapping("/createUser")
-    public User createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@RequestBody @Valid User user) {
         logger.info("request received at createUser method {}", user);
-        return userService.insertUserData(user);
+        return new ResponseEntity<>(userService.insertUserData(user), HttpStatus.CREATED);
     }
 
     @GetMapping("/getAllInfo")
